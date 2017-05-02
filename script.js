@@ -1,36 +1,27 @@
 /*global $*/ 
 $( document ).ready(function() {
-
-    var $pic = $("#pic"); 
-
+    
+  var $pic = $("#pic"); 
     function move() {
- 
-       //$pic.click(function(){
-         $pic.css("top", $pic.offset().top + 40);
-        //   });
-
+         $pic.css("top", $pic.offset().top + 5);
     }
 
-    
-
-
-$pic.click(function(){ 
+    $pic.click(function(){ 
         var gabby = setInterval(function() {
-            move();
-            console.log($("#ground").offset().top);
-            console.log( $pic.offset().top);
-if ($pic.offset().top > $("#ground").offset().top){
-clearInterval(gabby)
-}
-        }, 300);
+        move();
+        console.log($("#ground").offset().top);
+        console.log( $pic.offset().top);
+  
+  var pictop = $pic.offset().top
+  var picheight = $pic.height()
+  var picbottom = pictop + picheight
+   
+    if (picbottom > $("#ground").offset().top  ){
+    clearInterval(gabby)}
+    }, 30);
    
  });
 
 
 
-    /*
-    $pic.click(function(){
-       $pic.css("top", $pic.offset().top + 40);
-        });*/
 });
-   
